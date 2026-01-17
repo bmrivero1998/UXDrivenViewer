@@ -1,5 +1,11 @@
 # UXDrivenViewer
-DUIR: Declarative UI Runtime. A powerful Web Component engine that decouples UI definition from execution, rendering complex JSON schemas into interactive interfaces via Hybrid Loading strategies.
+Declarative UI Runtime (DUIR)
+
+A runtime-based UI execution engine that separates interface definition from rendering and behavior,
+executing declarative JSON schemas as fully reactive applications at runtime.
+
+“The schema is not a form description.
+It is an executable UI contract.”
 
 # DUIR Engine (v1.0.3) ⚛️
 
@@ -199,4 +205,15 @@ engine.UxDrivenJson = newSchema;
 
 ---
 
-**DUIR Engine** © 2026. All rights reserved.
+## What DUIR Is NOT
+
+- Not a Low-Code platform
+- Not Backend-Driven UI
+- Not a Template Engine
+- Not a Form Builder
+
+DUIR is a runtime that executes UI definitions as applications.
+---
+
+MIT License © 2026 Brando Martin Rivero Perez
+---
