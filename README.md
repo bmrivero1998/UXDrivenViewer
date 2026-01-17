@@ -23,6 +23,11 @@ The **DUIR Engine** is a high-performance Web Component designed to interpret de
 <link rel="stylesheet" href="path/to/v1.0.3/styles.css">
 <script src="path/to/v1.0.3/ux-driven-viewer.js" type="module"></script>
 
+<ux-driven-viewer 
+    id="myViewer"
+    project-id="1c8cf5c5-f955-46d3-84ff-1b6a0d795c61"
+    branch="main">
+</ux-driven-viewer>
 ```
 
 ---
