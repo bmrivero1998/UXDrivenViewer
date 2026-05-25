@@ -284,92 +284,51 @@ This attribute allows the runtime to intercept, validate, and execute the form s
 ## 🧪 Full Example
 
 ```json
-[
-  {
-    "id_DocumentHTMLCSS": "enterprise-complex-demo",
-    "renderType": "dynamic",
-    "htmlComponent": "<div class='container p-4'><div class='card shadow-lg border-0'><div class='card-header bg-primary text-white'><h2 id='header-title'></h2></div><div class='card-body'><div class='row'><div class='col-md-6 mb-3'><label class='form-label'>Full Name</label><input id='full-name' class='form-control' placeholder='Enter your name'><div id='err-name' class='small text-danger'></div></div><div class='col-md-6 mb-3'><label class='form-label'>Email Address</label><input id='email' class='form-control' placeholder='email@company.com'><div id='err-email' class='small text-danger'></div></div></div><div class='row'><div class='col-md-6 mb-3'><label class='form-label'>Account Type</label><select id='account-type' class='form-select'><option value='personal'>Personal Account</option><option value='business'>Business / Enterprise</option></select></div><div id='business-section' class='col-md-6 mb-3' style='display:none;'><label class='form-label'>Tax ID (RFC/VAT)</label><input id='tax-id' class='form-control' placeholder='XXXX-000000-XXX'><div id='err-tax' class='small text-danger'></div></div></div><div class='row'><div class='col-md-6 mb-3'><label class='form-label'>Contact Phone</label><input id='phone' class='form-control' placeholder='(000) 000-0000'><div id='err-phone' class='small text-danger'></div></div><div class='col-md-6 mb-3'><label class='form-label'>Project Budget (USD)</label><input id='budget' type='number' class='form-control'><div id='err-budget' class='small text-danger'></div></div></div><div class='mt-4 p-3 bg-light rounded'><h5 class='mb-3'>Related Stakeholders</h5><div id='stakeholders-grid'></div></div><div class='mt-4 d-flex justify-content-end'><button id='btn-reset' data-dynamic-action='RESET_FLOW' class='btn btn-outline-secondary me-2'>Clear Form</button><button id='btn-submit' data-dynamic-action='submit-form' class='btn btn-primary px-5'>Register Enterprise</button></div></div></div></div>",
-    "cssComponent": ".card { border-radius: 15px; overflow: hidden; } .form-control:focus { border-color: #0d6efd; box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25); } .is-invalid { border-color: #dc3545 !important; animation: shake 0.2s ease-in-out 0s 2; } @keyframes shake { 0% { margin-left: 0; } 25% { margin-left: 5px; } 50% { margin-left: 0; } 75% { margin-left: -5px; } 100% { margin-left: 0; } }",
-    "dataBindings": [
-      {
-        "selector": "#header-title",
-        "value": "Smart Enterprise Enrollment"
-      }
-    ],
-    "formMappings": [
-      {
-        "controlName": "fullName",
-        "domSelector": "#full-name",
-        "errorDisplaySelector": "#err-name",
-        "validatorConfig": [
-          { "type": "required", "message": "The name is required to generate the certificate." },
-          { "type": "minlength", "value": 10, "message": "Please enter your full legal name (min 10 chars)." }
-        ]
-      },
-      {
-        "controlName": "email",
-        "domSelector": "#email",
-        "errorDisplaySelector": "#err-email",
-        "validatorConfig": [
-          { "type": "required", "message": "A contact email is mandatory." },
-          { "type": "email", "message": "The email format is invalid." }
-        ]
-      },
-      {
-        "controlName": "accountType",
-        "domSelector": "#account-type",
-        "defaultValue": "personal"
-      },
-      {
-        "controlName": "taxId",
-        "domSelector": "#tax-id",
-        "errorDisplaySelector": "#err-tax",
-        "showIf": "accountType === 'business'",
-        "inputMask": "XXXX-999999-***"
-      },
-      {
-        "controlName": "phone",
-        "domSelector": "#phone",
-        "errorDisplaySelector": "#err-phone",
-        "inputMask": "(999) 999-9999",
-        "validatorConfig": [
-          { "type": "required", "message": "Phone number is required for verification." }
-        ]
-      },
-      {
-        "controlName": "budget",
-        "domSelector": "#budget",
-        "errorDisplaySelector": "#err-budget",
-        "validatorConfig": [
-          { "type": "min", "value": 1000, "message": "Minimum budget must be $1,000 USD." },
-          { "type": "max", "value": 500000, "message": "Maximum self-service budget is $500,000 USD." }
-        ]
-      }
-    ],
-    "tableBindings": [
-      {
-        "tableSelector": "#stakeholders-grid",
-        "columns": [
-          { "key": "role", "header": "Role" },
-          { "key": "name", "header": "Name" },
-          { "key": "status", "header": "Status" }
-        ],
-        "data": [
-          { "role": "Project Manager", "name": "Brando Rivero", "status": "Active" },
-          { "role": "Technical Lead", "name": "AI System", "status": "Standby" }
-        ],
-        "actions": [
-          { "label": "Edit", "action": "EDIT_STAKEHOLDER", "cssClass": "btn btn-sm btn-light" }
-        ]
-      }
-    ],
-    "buttonConfigs": [
-      {
-        "selector": "#btn-submit",
-        "disableWhen": "formIsInvalid"
-      }
-    ]
-  }
+[{
+  "id_DocumentHTMLCSS": "cv_interactive_brando_rivero",
+  "renderType": "dynamic",
+  "formId": "contact_brando_001",
+  "htmlComponent": "<div class=\"cv-wrapper\">\n  <header class=\"cv-header\">\n    <div class=\"header-top\">\n      <h1>Brando Martin Rivero Perez</h1>\n      <span class=\"status-badge\">Disponible para Arquitectura UI</span>\n    </div>\n    <h2>Desarrollador Fullstack (Java/Angular) & Creador de UXDriven</h2>\n    <p>Especialista en Clean Code, Atomic Design, migración tecnológica y orquestación de Micro-Frontends.</p>\n  </header>\n\n  <section class=\"cv-experience\">\n    <h3>Experiencia Destacada</h3>\n    <div class=\"job-card\">\n      <h4>Full Stack Developer @ Minsait (Telcel)</h4>\n      <p>Migración de 5 aplicaciones frontend y reemplazo de monolitos por microservicios robustos en Java.</p>\n    </div>\n  </section>\n\n  <section class=\"cv-skills\">\n    <h3>Stack Principal</h3>\n    <div class=\"badges\">\n      <span class=\"badge angular\">Angular 16 (Avanzado)</span>\n      <span class=\"badge ts\">TypeScript 5.1</span>\n      <span class=\"badge java\">Java 1.8 / Spring Boot</span>\n      <span class=\"badge cloud\">Cloudflare Workers</span>\n    </div>\n  </section>\n\n  <section class=\"cv-contact\">\n    <h3>Iniciar Conversación Técnica</h3>\n    <form data-dynamic-form=\"contact_brando_001\">\n      <div class=\"form-group\">\n        <label>Nombre del Reclutador / Tech Lead</label>\n        <input id=\"guestName\" class=\"cv-input\" type=\"text\" placeholder=\"Ej. CTO de Banco\">\n        <div class=\"error-msg\" data-error-for=\"guestName\"></div>\n      </div>\n      <div class=\"form-group\">\n        <label>Correo Electrónico</label>\n        <input id=\"guestEmail\" class=\"cv-input\" type=\"email\" placeholder=\"correo@empresa.com\">\n        <div class=\"error-msg\" data-error-for=\"guestEmail\"></div>\n      </div>\n      <div class=\"form-group\">\n        <label>Propuesta de Proyecto</label>\n        <textarea id=\"guestMessage\" class=\"cv-input\" rows=\"3\" placeholder=\"¡Queremos implementar tu motor en nuestra arquitectura!\"></textarea>\n        <div class=\"error-msg\" data-error-for=\"guestMessage\"></div>\n      </div>\n      <button id=\"btn-hire\" data-dynamic-action=\"submit-form\" class=\"cv-btn\">\n        Enviar Propuesta a Brando\n      </button>\n    </form>\n  </section>\n</div>",
+  "cssComponent": ".dynamic-cv_interactive_brando_rivero .cv-wrapper { font-family: system-ui, -apple-system, sans-serif; max-width: 650px; margin: 2rem auto; background: #1e1e2e; color: #cdd6f4; border-radius: 16px; padding: 32px; box-shadow: 0 20px 40px rgba(0,0,0,0.4); border: 1px solid #313244; }\n.dynamic-cv_interactive_brando_rivero .cv-header h1 { color: #89b4fa; margin: 0 0 8px 0; font-size: 1.8rem; }\n.dynamic-cv_interactive_brando_rivero .cv-header h2 { color: #f38ba8; font-size: 1.1rem; margin-top: 0; font-weight: 500; }\n.dynamic-cv_interactive_brando_rivero .cv-header p { color: #a6adc8; line-height: 1.5; font-size: 0.95rem; }\n.dynamic-cv_interactive_brando_rivero .status-badge { background: #a6e3a1; color: #11111b; padding: 4px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: bold; display: inline-block; margin-bottom: 10px; }\n.dynamic-cv_interactive_brando_rivero h3 { border-bottom: 1px solid #45475a; padding-bottom: 8px; margin-top: 24px; color: #cba6f7; font-size: 1.2rem; }\n.dynamic-cv_interactive_brando_rivero .job-card { background: #181825; padding: 16px; border-radius: 8px; border-left: 4px solid #89b4fa; }\n.dynamic-cv_interactive_brando_rivero .job-card h4 { margin: 0 0 8px 0; color: #89b4fa; }\n.dynamic-cv_interactive_brando_rivero .job-card p { margin: 0; font-size: 0.9rem; color: #bac2de; }\n.dynamic-cv_interactive_brando_rivero .cv-skills .badges { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }\n.dynamic-cv_interactive_brando_rivero .badge { padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; }\n.dynamic-cv_interactive_brando_rivero .badge.angular { background: rgba(243, 139, 168, 0.15); color: #f38ba8; }\n.dynamic-cv_interactive_brando_rivero .badge.ts { background: rgba(137, 180, 250, 0.15); color: #89b4fa; }\n.dynamic-cv_interactive_brando_rivero .badge.java { background: rgba(250, 179, 135, 0.15); color: #fab387; }\n.dynamic-cv_interactive_brando_rivero .badge.cloud { background: rgba(166, 227, 161, 0.15); color: #a6e3a1; }\n.dynamic-cv_interactive_brando_rivero .form-group { margin-bottom: 18px; }\n.dynamic-cv_interactive_brando_rivero label { display: block; margin-bottom: 6px; font-size: 0.9rem; font-weight: 500; color: #bac2de; }\n.dynamic-cv_interactive_brando_rivero .cv-input { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #45475a; background: #11111b; color: #cdd6f4; font-family: inherit; transition: border-color 0.2s; box-sizing: border-box; }\n.dynamic-cv_interactive_brando_rivero .cv-input:focus { outline: none; border-color: #89b4fa; }\n.dynamic-cv_interactive_brando_rivero .error-msg { color: #f38ba8; font-size: 0.8rem; margin-top: 6px; min-height: 14px; }\n.dynamic-cv_interactive_brando_rivero .cv-btn { background: #89b4fa; color: #11111b; border: none; padding: 14px 24px; border-radius: 8px; cursor: pointer; font-weight: bold; width: 100%; font-size: 1rem; transition: background-color 0.3s; margin-top: 10px; }\n.dynamic-cv_interactive_brando_rivero .cv-btn:disabled { background: #45475a; color: #7f849c; cursor: not-allowed; }",
+  "formMappings": [
+    {
+      "controlName": "guestName",
+      "domSelector": "#guestName",
+      "eventType": "input",
+      "errorDisplaySelector": "[data-error-for='guestName']",
+      "validatorConfig": [
+        { "type": "required", "message": "Tu nombre es indispensable." },
+        { "type": "minLength", "value": 3, "message": "El nombre debe tener al menos 3 caracteres." }
+      ]
+    },
+    {
+      "controlName": "guestEmail",
+      "domSelector": "#guestEmail",
+      "eventType": "input",
+      "errorDisplaySelector": "[data-error-for='guestEmail']",
+      "validatorConfig": [
+        { "type": "required", "message": "Necesito tu correo para responderte." },
+        { "type": "email", "message": "Ingresa un correo corporativo o válido." }
+      ]
+    },
+    {
+      "controlName": "guestMessage",
+      "domSelector": "#guestMessage",
+      "eventType": "input",
+      "errorDisplaySelector": "[data-error-for='guestMessage']",
+      "validatorConfig": [
+        { "type": "required", "message": "No olvides dejarme un mensaje." },
+        { "type": "minLength", "value": 15, "message": "Cuéntame un poco más del proyecto (mínimo 15 caracteres)." }
+      ]
+    }
+  ],
+  "buttonConfigs": [
+    {
+      "selector": "#btn-hire",
+      "disableWhen": "formIsInvalid"
+    }
+  ]
+}
 ]
 ```
 
