@@ -47,7 +47,7 @@ A schema is an array of execution blocks.
 ```json
 [
   {
-    "contentId": "example-view",
+    "id_DocumentHTMLCSS": "example-view",
     "renderType": "dynamic",
     "htmlComponent": "...",
     "cssComponent": "...",
@@ -63,12 +63,12 @@ A schema is an array of execution blocks.
 
 ## 🔹 Core Properties
 
-### `contentId`
+### `id_DocumentHTMLCSS`
 
 Unique identifier for the execution context.
 
 ```json
-"contentId": "enterprise-complex-demo"
+"id_DocumentHTMLCSS": "enterprise-complex-demo"
 ```
 
 ---
@@ -286,7 +286,7 @@ This attribute allows the runtime to intercept, validate, and execute the form s
 ```json
 [
   {
-    "contentId": "enterprise-complex-demo",
+    "id_DocumentHTMLCSS": "enterprise-complex-demo",
     "renderType": "dynamic",
     "htmlComponent": "<div class='container p-4'><div class='card shadow-lg border-0'><div class='card-header bg-primary text-white'><h2 id='header-title'></h2></div><div class='card-body'><div class='row'><div class='col-md-6 mb-3'><label class='form-label'>Full Name</label><input id='full-name' class='form-control' placeholder='Enter your name'><div id='err-name' class='small text-danger'></div></div><div class='col-md-6 mb-3'><label class='form-label'>Email Address</label><input id='email' class='form-control' placeholder='email@company.com'><div id='err-email' class='small text-danger'></div></div></div><div class='row'><div class='col-md-6 mb-3'><label class='form-label'>Account Type</label><select id='account-type' class='form-select'><option value='personal'>Personal Account</option><option value='business'>Business / Enterprise</option></select></div><div id='business-section' class='col-md-6 mb-3' style='display:none;'><label class='form-label'>Tax ID (RFC/VAT)</label><input id='tax-id' class='form-control' placeholder='XXXX-000000-XXX'><div id='err-tax' class='small text-danger'></div></div></div><div class='row'><div class='col-md-6 mb-3'><label class='form-label'>Contact Phone</label><input id='phone' class='form-control' placeholder='(000) 000-0000'><div id='err-phone' class='small text-danger'></div></div><div class='col-md-6 mb-3'><label class='form-label'>Project Budget (USD)</label><input id='budget' type='number' class='form-control'><div id='err-budget' class='small text-danger'></div></div></div><div class='mt-4 p-3 bg-light rounded'><h5 class='mb-3'>Related Stakeholders</h5><div id='stakeholders-grid'></div></div><div class='mt-4 d-flex justify-content-end'><button id='btn-reset' data-dynamic-action='RESET_FLOW' class='btn btn-outline-secondary me-2'>Clear Form</button><button id='btn-submit' data-dynamic-action='submit-form' class='btn btn-primary px-5'>Register Enterprise</button></div></div></div></div>",
     "cssComponent": ".card { border-radius: 15px; overflow: hidden; } .form-control:focus { border-color: #0d6efd; box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25); } .is-invalid { border-color: #dc3545 !important; animation: shake 0.2s ease-in-out 0s 2; } @keyframes shake { 0% { margin-left: 0; } 25% { margin-left: 5px; } 50% { margin-left: 0; } 75% { margin-left: -5px; } 100% { margin-left: 0; } }",
